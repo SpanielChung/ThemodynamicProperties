@@ -10,17 +10,15 @@ namespace ThemodynamicProperties
         };
     public class ThermodynamicProperties
     {
-
-
-        private R22 R22;
+        PropTable propTable;
 
         public ThermodynamicProperties()
         {
-            R22 = new R22();
+            propTable = new PropTable();
         }
         public double GetPressureFromTemp(medium m, double temperatureC)
         {
-            return R22.properties.Where(x => x.medium == m && x.temperatureF == temperatureC).Select(x => x.pressurePSIa).FirstOrDefault();
+            return  propTable.properties.Where(x => x.medium == m && x.temperatureF == temperatureC).Select(x => x.pressurePSIa).FirstOrDefault();
         }
 
 
